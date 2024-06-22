@@ -5,10 +5,12 @@ export default function Shortened({ shortUrl, onDelete }) {
   return (
     <div className={`grid grid-cols-2 p-1 `}>
       <div>
-        <p className="text-sm text-gray-900 ">
+        <p className="text-sm text-gray-900 truncate max-w-xs">
           {`http://localhost:3000/${shortUrl.shortUrl}`}
         </p>
-        <p className="text-xs text-gray-500">{`Original: ${shortUrl.originalUrl}`}</p>
+        <p className="text-xs text-gray-500 truncate max-w-xs">
+          {`Original: ${shortUrl.originalUrl}`}
+        </p>
       </div>
       <div className={`text-right`}>
         <div>

@@ -34,11 +34,27 @@ export default function Home() {
       return;
     }
 
-    if (
-      !/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(
-        url
-      )
-    ) {
+    const urlPattern = new RegExp(
+      "^" +
+        "(?:(?:https?|ftp)://)" +
+        "(?:\\S+(?::\\S*)?@)?" +
+        "(?:" +
+        "(?!(?:10|127)(?:\\.\\d{1,3}){3})" +
+        "(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})" +
+        "(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})" +
+        "(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])" +
+        "(?:\\.\\d{1,3}){3}|" +
+        "(?:(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)" +
+        "(?:\\.(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)*" +
+        "(?:\\.(?:[a-z\\u00a1-\\uffff]{2,}))" +
+        ")" +
+        "(?::\\d{2,5})?" +
+        "(?:/\\S*)?" +
+        "$",
+      "i"
+    );
+
+    if (!urlPattern.test(url)) {
       setError("Please enter a valid URL");
       return;
     }
@@ -161,9 +177,7 @@ export default function Home() {
             <span
               className="hidden sm:inline-block sm:align-middle sm:h-screen"
               aria-hidden="true"
-            >
-              &#8203;
-            </span>
+            ></span>
             <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
               <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <div className="sm:flex sm:items-start">
