@@ -67,6 +67,20 @@ export default function Home() {
     }
   };
 
+  // Delete URL
+  const handleDelete = async (shortUrlToDelete) => {
+    try {
+      await axios.delete(`/api/delete/${shortUrlToDelete}`);
+      const newShortUrls = shortUrl.filter(
+        (item) => item.shortUrl !== shortUrlToDelete
+      );
+      setShortUrl(newShortUrls);
+      saveUrlsToLocalStorage(newShortUrls);
+    } catch (error) {
+      console.error("Failed to delete the URL", error);
+    }
+  };
+
   return (
     <div className="w-full h-screen bg-whit">
       <div className="flex flex-col items-center justify-center h-full">
@@ -115,7 +129,7 @@ export default function Home() {
                       );
                     }}
                   >
-                    <Shortened key={index} shortUrl={item} />
+                    <Shortened shortUrl={item} onDelete={handleDelete} />
                   </div>
                 </Tippy>
               ))}

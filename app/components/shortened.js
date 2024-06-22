@@ -1,4 +1,4 @@
-export default function Shortened({ shortUrl }) {
+export default function Shortened({ shortUrl, onDelete }) {
   return (
     <div className={`grid grid-cols-2 p-1 `}>
       <div>
@@ -31,6 +31,7 @@ export default function Shortened({ shortUrl }) {
           <button
             name="deleteURL"
             className="text-sm bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 rounded-md p-1 m-1"
+            onClick={() => onDelete(shortUrl.shortUrl)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
