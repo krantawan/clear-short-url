@@ -20,7 +20,7 @@ A simple and efficient URL shortener built with Next.js, Prisma, and PostgreSQL.
 ### Prerequisites
 
 - Node.js and npm
-- PostgreSQL
+- Docker and Docker Compose
 
 ### Installation
 
@@ -30,6 +30,8 @@ A simple and efficient URL shortener built with Next.js, Prisma, and PostgreSQL.
 git clone https://github.com/yourusername/url-shortener.git
 cd url-shortener
 ```
+
+2. 
 
 
 ### Project Structure
@@ -57,3 +59,10 @@ cd url-shortener
 ├── package.json
 └── tsconfig.json
 ```
+
+## Acknowledgements
+
+ - [Next.js](https://nextjs.org/)
+ - [Prisma](https://www.prisma.io/)
+ - [Tailwind CSS](https://tailwindcss.com/)
+ - [PostgreSQL](https://www.postgresql.org/)
