@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { redirect } from "next/navigation";
+import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
@@ -20,7 +21,8 @@ export default async function getShortURL({ params }) {
       },
     });
 
-    redirect(findURLdata.originalUrl);
+    return redirect(findURLdata.originalUrl);
+  } else {
+    return redirect(null);
   }
-  return null;
 }

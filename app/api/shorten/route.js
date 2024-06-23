@@ -10,6 +10,9 @@ export async function POST(request) {
 
     const shortUrl = nanoid(6);
 
+    // await prisma.$connect();
+    // console.log("Connected to the database");
+
     const newUrl = await prisma.url.create({
       data: {
         originalUrl: url,
@@ -17,9 +20,13 @@ export async function POST(request) {
       },
     });
 
+    // console.log("New URL created:", newUrl);
+    // await prisma.$disconnect();
+    // console.log("Disconnected from the database");
+
     return NextResponse.json({ shortUrl: newUrl.shortUrl });
   } catch (error) {
-    console.error(error);
+    console.error("Error creating URL:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 }

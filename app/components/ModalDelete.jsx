@@ -1,4 +1,4 @@
-export default function Modal({ showModal, condel, candel }) {
+export default function ModalDelete({ showModal, condel, candel }) {
   if (!showModal) return null;
 
   return (
