@@ -17,12 +17,17 @@ export default function Shortened({ shortUrl, onDelete }) {
           name="Count"
           className="text-sm bg-white border border-gray-200 focus:ring-4 rounded-md p-1 m-1 max-w-xs truncate"
         >
-          1
+          {shortUrl.clicks}
         </div>
         <Tippy content="Copied!" trigger="click">
           <button
             name="copyURL"
             className="text-sm bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 rounded-md p-1 m-1"
+            onClick={() => {
+              navigator.clipboard.writeText(
+                `http://localhost:3000/${shortUrl.shortUrl}`
+              );
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

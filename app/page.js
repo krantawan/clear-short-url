@@ -15,8 +15,20 @@ export default function Home() {
 
   // Load URLs from local storage
   useEffect(() => {
-    const storedUrls = JSON.parse(localStorage.getItem("shortUrls")) || [];
-    setShortUrl(storedUrls);
+    const fetchData = async () => {
+      const storedUrls = JSON.parse(localStorage.getItem("shortUrls")) || [];
+
+      const updatedClickUrls = await Promise.all(
+        storedUrls.map(async (url) => {
+          const res = await axios.get(`/api/clicks/${url.shortUrl}`);
+          //console.log(res.data.clicks);
+          return { ...url, clicks: res.data.clicks };
+        })
+      );
+      setShortUrl(updatedClickUrls);
+    };
+
+    fetchData();
   }, []);
 
   // Save URLs to local storage
