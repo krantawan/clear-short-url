@@ -48,7 +48,7 @@ export default function Home() {
       if (res.status === 200) {
         const newShortUrls = [
           ...shortUrl,
-          { originalUrl: url, shortUrl: res.data.shortUrl },
+          { originalUrl: url, shortUrl: res.data.shortUrl, clicks: 0 },
         ];
 
         setShortUrl(newShortUrls);
