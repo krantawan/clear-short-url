@@ -31,8 +31,22 @@ git clone https://github.com/yourusername/url-shortener.git
 cd url-shortener
 ```
 
-2. 
+2. Create the .env file:
+```sh
+cp .env.example .env
+```
+3. Run the project
+Use Docker Compose to build and start the project:
+```sh
+docker-compose up --build
+```
+The application will be available at http://localhost:3000.
 
+
+### Services
+- App: The Next.js application available at http://localhost:3000.
+- Postgres: The PostgreSQL database.
+- PgAdmin: A web-based PostgreSQL database administration tool available at http://localhost:5050.
 
 ### Project Structure
 
@@ -58,6 +72,13 @@ cd url-shortener
 ├── README.md
 ├── package.json
 └── tsconfig.json
+```
+
+### Environment Variables
+Make sure to set the following environment variables in your .env file:
+```sh
+DATABASE_URL="postgresql://admin:admin@postgres:5432/shorturl?schema=public"
+NEXT_PUBLIC_URL="http://localhost:3000"
 ```
 
 ## Acknowledgements
