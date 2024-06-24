@@ -1,4 +1,4 @@
-# URL Shortener
+# Simple URL Shortener
 
 A simple and efficient URL shortener built with Next.js, Prisma, and PostgreSQL. This application allows users to shorten long URLs and track the number of clicks.
 
@@ -31,11 +31,7 @@ git clone https://github.com/yourusername/url-shortener.git
 cd url-shortener
 ```
 
-2. Create the .env file:
-```sh
-cp .env.example .env
-```
-3. Run the project
+2. Run the project
 Use Docker Compose to build and start the project:
 ```sh
 docker-compose up --build
